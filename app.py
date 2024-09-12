@@ -50,6 +50,7 @@ valor_coletado.pack(padx=10, pady=10)
 
 # BOTÕES DE RADIO =========================================================
 radio_var = customtkinter.StringVar()
+radio_var.set("0.012")
 radio_024 = customtkinter.CTkRadioButton(
     app, text="0,24%", value="0.0024", variable=radio_var)
 radio_024.pack(pady=10)
