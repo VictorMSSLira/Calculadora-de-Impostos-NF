@@ -15,6 +15,7 @@ def Operacao():
         total = valor_coletado.get()
         # TRATAR VALOR
         try:
+            total = total.replace(".", "")
             total = total.replace(",", ".")
             total = float(total)
 
@@ -25,8 +26,10 @@ def Operacao():
 
             resultado_liquido.delete("0.0", "end")
             resultado_liquido.insert("0.0", f"Líquido: {v2_formatado}")
+            resultado_liquido.configure(state="disabled")
             resultado_desconto.delete("0.0", "end")
             resultado_desconto.insert("0.0", f"Desconto: {v1_formatado}")
+            resultado_desconto.configure(state="disabled")
         except:
             resultado_desconto.configure(
                 text="Valor inválido.\nDigite novamente!")
@@ -37,17 +40,17 @@ def Operacao():
 # INÍCIO ==================================================================
 app = customtkinter.CTk()
 app.title("Calculadora de Impostos")
-app.geometry("320x400")
+app.geometry("380x450")
 
 
 # TEXTO TOPO ==============================================================
 texto = customtkinter.CTkLabel(app, text="Digite o Valor e Selecione o Desconto", font=(
-    "Helvetica", 16), text_color="#02b848")
+    "Helvetica", 18), text_color="#02b848")
 texto.pack(padx=10, pady=10)
 # 50FA7B
 # INPUT DO VALOR ============================================-=============
 valor_coletado = customtkinter.CTkEntry(
-    app, placeholder_text="Digite o valor em reais", width=250, justify="center", font=("Consolas", 18))
+    app, placeholder_text="Digite o valor em reais", width=300, justify="center", font=("Consolas", 22))
 valor_coletado.pack(padx=10, pady=10)
 
 # BOTÕES DE RADIO =========================================================
@@ -69,14 +72,14 @@ bt_calcular.pack(padx=10, pady=10)
 
 # APRESENTAR RESULTADO ====================================================
 resultado_liquido = customtkinter.CTkTextbox(
-    app, width=300, height=30, font=("Consolas", 18, "bold"), text_color="#0015ff")
+    app, width=330, height=45, font=("Consolas", 22, "bold"), text_color="#0015ff")
 resultado_liquido.pack(padx=10, pady=10)
 #7389ec
 resultado_desconto = customtkinter.CTkTextbox(
-    app, width=300, height=30, font=("Consolas", 18, "bold"), text_color="#e63e00")
+    app, width=330, height=45, font=("Consolas", 22, "bold"), text_color="#e63e00")
 resultado_desconto.pack(padx=10, pady=10)
 
 
 
-# FAZER APARECER A JANELA (ULTIMA COISA)===================================
+# FAZER APARECER A JANELA (ULTIMA COISA)===================================10.234,25
 app.mainloop()
