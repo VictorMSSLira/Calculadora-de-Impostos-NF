@@ -70,11 +70,11 @@ bt_calcular.pack(padx=10, pady=10)
 # APRESENTAR RESULTADO ====================================================
 resultado_liquido = customtkinter.CTkTextbox(
     app, width=300, height=30, font=("Consolas", 18, "bold"), text_color="#0015ff")
-resultado_liquido.pack(pady=10)
+resultado_liquido.pack(padx=10, pady=10)
 #7389ec
 resultado_desconto = customtkinter.CTkTextbox(
     app, width=300, height=30, font=("Consolas", 18, "bold"), text_color="#e63e00")
-resultado_desconto.pack(pady=10)
+resultado_desconto.pack(padx=10, pady=10)
 
 
 
