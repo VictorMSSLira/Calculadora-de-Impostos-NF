@@ -23,8 +23,8 @@ def Operacao():
             v2 = total - v1
             v2_formatado = locale.currency(v2, grouping=True)
 
-            resultado_liquido.configure(text=f"Líquido: {v2_formatado}")
-            resultado_desconto.configure(text=f"Desconto: {v1_formatado}")
+            resultado_liquido.insert("0.0", f"Líquido: {v2_formatado}")
+            resultado_desconto.insert("0.0", f"Desconto: {v1_formatado}")
         except:
             resultado_desconto.configure(
                 text="Valor inválido.\nDigite novamente!")
@@ -45,7 +45,7 @@ texto.pack(padx=10, pady=10)
 # 50FA7B
 # INPUT DO VALOR ============================================-=============
 valor_coletado = customtkinter.CTkEntry(
-    app, placeholder_text="Digite o valor em reais", width=150, justify="center")
+    app, placeholder_text="Digite o valor em reais", width=250, justify="center", font=("Consolas", 18))
 valor_coletado.pack(padx=10, pady=10)
 
 # BOTÕES DE RADIO =========================================================
@@ -66,13 +66,14 @@ bt_calcular = customtkinter.CTkButton(app, text="Calcular", command=Operacao)
 bt_calcular.pack(padx=10, pady=10)
 
 # APRESENTAR RESULTADO ====================================================
-resultado_liquido = customtkinter.CTkLabel(
-    app, text="", font=("Consolas", 18), text_color="#0015ff")
+resultado_liquido = customtkinter.CTkTextbox(
+    app, width=300, height=30, font=("Consolas", 18, "bold"), text_color="#0015ff")
 resultado_liquido.pack(pady=10)
 #7389ec
-resultado_desconto = customtkinter.CTkLabel(
-    app, text="", font=("Consolas", 18), text_color="#e63e00")
+resultado_desconto = customtkinter.CTkTextbox(
+    app, width=300, height=30, font=("Consolas", 18, "bold"), text_color="#e63e00")
 resultado_desconto.pack(pady=10)
+
 
 
 # FAZER APARECER A JANELA (ULTIMA COISA)===================================
