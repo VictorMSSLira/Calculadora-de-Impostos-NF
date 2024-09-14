@@ -23,7 +23,9 @@ def Operacao():
             v2 = total - v1
             v2_formatado = locale.currency(v2, grouping=True)
 
+            resultado_liquido.delete("0.0", "end")
             resultado_liquido.insert("0.0", f"Líquido: {v2_formatado}")
+            resultado_desconto.delete("0.0", "end")
             resultado_desconto.insert("0.0", f"Desconto: {v1_formatado}")
         except:
             resultado_desconto.configure(
